@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>עברית עם המורה זהר</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eaf3ea;
+      color: #24394d;
+      direction: rtl;
+      text-align: center;
+      padding: 20px;
+    }
+    .banner {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 30px;
+    }
+    .class-box {
+      background-color: #d8e6da;
+      padding: 15px;
+      margin: 10px auto;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <img src="banner.png" alt="שיעור עברית" class="banner">
+  <h2>ברוכים הבאים לאתר הלמידה בעברית</h2>
+  <p>בחרי כיתה והכניסי את הסיסמה כדי להיכנס</p>
+
+  <div class="class-box" onclick="enterClass('3')">כיתה ג'</div>
+  <div class="class-box" onclick="enterClass('4')">כיתה ד'</div>
+  <div class="class-box" onclick="enterClass('5')">כיתה ה'</div>
+  <div class="class-box" onclick="enterClass('6')">כיתה ו'</div>
+  <div class="class-box" onclick="enterClass('7-8A')">כיתה ז'-ח' A</div>
+  <div class="class-box" onclick="enterClass('8B')">כיתה ח' B</div>
+  <div class="class-box" onclick="enterClass('9-10A')">כיתה ט'-י' A</div>
+
+  <script>
+    function enterClass(classId) {
+      const password = prompt("הכניסי סיסמה לכיתה " + classId);
+      const passwords = {
+        "3": "kitag123",
+        "4": "kitad123",
+        "5": "kitah123",
+        "6": "kitav123",
+        "7-8A": "zchetA123",
+        "8B": "chetB123",
+        "9-10A": "tyA123"
+      };
+      if (password === passwords[classId]) {
+        window.location.href = `groups/${classId}/index.html`;
+      } else {
+        alert("סיסמה שגויה. נסי שוב.");
+      }
+    }
+  </script>
+</body>
+</html>
